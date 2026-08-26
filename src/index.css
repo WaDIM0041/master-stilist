@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0a0b;
+  --color-graphite: #131417;
+  --color-smoke: #1c1e22;
+  --color-paper: #f1efe9;
+  --color-paper2: #e7e4db;
+  --color-line: rgba(241, 239, 233, 0.14);
+  --color-lined: rgba(10, 10, 11, 0.16);
+  /* Палитра золота */
+  --color-gold: #c9a45c;
+  --color-gold-soft: #e6cf9a;
+  --color-gold-bright: #f6ead0;
+  --color-gold-deep: #8a6d3b;
+  --font-serif: "Cormorant", "Georgia", serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-rise: rise 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  --animate-blink: blink 1.1s steps(2, start) infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+}
+
+/* ── Глобальные keyframes (не tree-shaken) ── */
+@keyframes gold-flow {
+  to { background-position: 200% center; }
+}
+@keyframes drift-a {
+  from { transform: translate3d(-6%, -4%, 0) scale(1); }
+  to { transform: translate3d(10%, 8%, 0) scale(1.18); }
+}
+@keyframes drift-b {
+  from { transform: translate3d(8%, 6%, 0) scale(1.12); }
+  to { transform: translate3d(-8%, -10%, 0) scale(0.94); }
+}
+@keyframes drift-c {
+  from { transform: translate3d(-4%, 6%, 0) scale(1.06); }
+  to { transform: translate3d(6%, -8%, 0) scale(1.22); }
+}
+@keyframes spin-slower {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes hero-glow {
+  from { opacity: 0.45; transform: scale(1) translateY(0); }
+  to { opacity: 0.85; transform: scale(1.15) translateY(-4%); }
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+  }
+  body {
+    @apply bg-ink text-paper font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+  img, canvas, video {
+    display: block;
+    max-width: 100%;
+  }
+  button {
+    cursor: pointer;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ink);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #574726;
+    border: 2px solid var(--color-ink);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold-deep);
+  }
+}
+
+@layer utilities {
+  /* Editorial mono label */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+  }
+  /* Display serif */
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 0.96;
+    letter-spacing: -0.015em;
+  }
+  /* Monochrome media treatment */
+  .mono-media {
+    filter: grayscale(1) contrast(1.06);
+  }
+  /* Footer giant word — контур цвета золота */
+  .text-hollow {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201, 164, 92, 0.22);
+  }
+  /* Живой золотой градиент по тексту */
+  .gold-text {
+    background-image: linear-gradient(
+      100deg,
+      #8a6d3b 0%,
+      #c9a45c 20%,
+      #f6ead0 38%,
+      #e6cf9a 50%,
+      #c9a45c 64%,
+      #8a6d3b 88%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gold-flow 9s linear infinite;
+  }
+  /* Золотая волосяная рамка */
+  .gold-hairline {
+    border-color: rgba(201, 164, 92, 0.25);
+  }
+  /* Центробежная золотая линия-разделитель */
+  .gold-fade-h {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(201, 164, 92, 0.55),
+      transparent
+    );
+  }
+  /* Контурное золото (гигантский логотип) */
+  .gold-hollow {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201, 164, 92, 0.3);
+    transition: -webkit-text-stroke-color 0.7s ease, color 0.7s ease;
+  }
+  .gold-hollow:hover {
+    -webkit-text-stroke-color: rgba(201, 164, 92, 0.6);
+    color: rgba(201, 164, 92, 0.08);
+  }
+  /* Спецэффект: диагональный блик-перелив при наведении */
+  .sweep {
+    position: relative;
+    overflow: hidden;
+  }
+  .sweep::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 32%,
+      rgba(230, 207, 154, 0.07) 46%,
+      rgba(246, 234, 208, 0.16) 50%,
+      rgba(230, 207, 154, 0.07) 54%,
+      transparent 68%
+    );
+    transform: translateX(-130%) skewX(-6deg);
+    transition: transform 1.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .sweep:hover::after {
+    transform: translateX(130%) skewX(-6deg);
+  }
+  /* Спецэффект: золотое свечение, следящее за курсором */
+  .spot {
+    position: relative;
+  }
+  .spot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: radial-gradient(
+      460px circle at var(--sx, 50%) var(--sy, 50%),
+      rgba(201, 164, 92, 0.13),
+      transparent 65%
+    );
+  }
+  .spot:hover::before {
+    opacity: 1;
+  }
+  /* Анимации фона-авроры */
+  .aurora-a { animation: drift-a 40s ease-in-out infinite alternate; }
+  .aurora-b { animation: drift-b 48s ease-in-out infinite alternate; }
+  .aurora-c { animation: drift-c 56s ease-in-out infinite alternate; }
+  .silk { animation: spin-slower 90s linear infinite; }
+  .hero-glow { animation: hero-glow 10s ease-in-out infinite alternate; }
+  /* Film grain */
+  .grain-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  }
+  /* Hero line mask */
+  .mask-line {
+    display: block;
+    overflow: hidden;
+  }
+  .mask-line > span {
+    display: block;
+    will-change: transform;
+  }
+}
+
+/* Lenis smooth scroll recommended styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-rise,
+  .aurora-a,
+  .aurora-b,
+  .aurora-c,
+  .silk,
+  .hero-glow,
+  .gold-text {
+    animation: none !important;
+  }
+}
