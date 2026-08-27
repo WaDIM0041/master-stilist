@@ -286,10 +286,8 @@ export const EXPRESS_SAMPLES: ExpressSample[] = [
 /* ── Медиа ── */
 
 export const MEDIA = {
-  heroVideo:
-    "https://videos.pexels.com/video-files/10140738/10140738-uhd_4096_2160_25fps.mp4",
-  heroPoster:
-    "https://images.pexels.com/videos/10140738/pexels-photo-10140738.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1080&w=1920",
+  heroVideo: "hero-video.mp4",
+  heroPoster: "hero-poster.jpg",
   aboutPortrait: px(32619416, 1000, 1300),
   aboutSecondary: px(36583147, 800, 1000),
   beforeAfter: px(18516756, 1000, 1500),

@@ -240,12 +240,15 @@ html.lenis body {
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-rise,
+  .silk {
+    animation: none !important;
+  }
   .aurora-a,
   .aurora-b,
   .aurora-c,
-  .silk,
   .hero-glow,
   .gold-text {
-    animation: none !important;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
   }
 }

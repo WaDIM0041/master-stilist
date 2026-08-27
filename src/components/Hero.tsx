@@ -1,10 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { MEDIA } from "../data/content";
 import { scrollToSection } from "../lib/scroll";
 
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null);
+  const [videoOk, setVideoOk] = useState(true);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -37,19 +38,29 @@ export default function Hero() {
       id="top"
       className="relative flex h-svh min-h-[640px] flex-col overflow-hidden"
     >
-      {/* Кинематографичный видеоряд */}
+      {/* Кинематографичный видеоряд (лёгкий, 1080p) */}
       <div data-hero-video className="absolute inset-0 will-change-transform">
-        <video
-          className="mono-media h-full w-full object-cover"
-          src={MEDIA.heroVideo}
-          poster={MEDIA.heroPoster}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-        />
+        {videoOk ? (
+          <video
+            className="mono-media h-full w-full object-cover"
+            src={MEDIA.heroVideo}
+            poster={MEDIA.heroPoster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            onError={() => setVideoOk(false)}
+          />
+        ) : (
+          <img
+            src={MEDIA.heroPoster}
+            alt=""
+            aria-hidden="true"
+            className="mono-media h-full w-full object-cover"
+          />
+        )}
       </div>
 
       {/* Тёмный градиент + тёплое золотое свечение */}
