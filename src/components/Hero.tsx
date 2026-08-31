@@ -89,7 +89,7 @@ export default function Hero() {
             Digital-платформа стиля
           </p>
           <p className="label hidden text-paper/50 sm:block">
-            Москва · Online · с 2021
+            Онлайн · по всей России
           </p>
         </div>
 
@@ -112,9 +112,9 @@ export default function Hero() {
             data-hero-fade
             className="max-w-md text-sm leading-relaxed text-paper/70 md:text-base"
           >
-            Экспресс-анализ цветотипа за десять секунд, персональные разборы
-            для частных клиентов — и цифровой инструмент для профессионалов
-            индустрии красоты.
+            Персональный разбор внешности по фотографиям — цветотип,
+            палитра и капсула под твою жизнь. Спокойно и вручную,
+            без спешки.
           </p>
 
           <div data-hero-fade className="flex flex-wrap items-center gap-3">
@@ -122,7 +122,7 @@ export default function Hero() {
               onClick={() => scrollToSection("#express")}
               className="label border border-gold/70 px-7 py-4 text-[10px] text-gold-bright transition-all duration-300 hover:border-gold hover:bg-gold hover:text-ink"
             >
-              Пройти экспресс-анализ
+              Записаться на разбор
             </button>
             <button
               onClick={() => scrollToSection("#pricing")}
@@ -139,10 +139,10 @@ export default function Hero() {
           className="mt-10 grid grid-cols-2 gap-6 border-t border-gold/25 pt-5 md:mt-14 md:grid-cols-4"
         >
           {[
-            ["10 сек", "экспресс-анализ"],
-            ["4 000+", "разборов с 2021"],
-            ["4.9", "средняя оценка"],
-            ["24 ч", "срок полного разбора"],
+            ["12", "сезонных типов"],
+            ["1–3 дня", "срок разбора"],
+            ["от 700 ₽", "стартовая цена"],
+            ["100%", "ручная работа"],
           ].map(([v, l]) => (
             <div key={l} className="flex flex-col gap-1">
               <span className="display gold-text text-2xl italic md:text-3xl">

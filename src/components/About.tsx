@@ -72,9 +72,9 @@ export default function About() {
               data-reveal-group
             >
               {[
-                ["8 лет", "частной практики"],
-                ["4 000+", "разборов выдано"],
-                ["40+", "мастеров на PRO"],
+                ["12", "сезонных типов"],
+                ["1–3 дня", "на разбор"],
+                ["по фото", "формат работы"],
               ].map(([v, l]) => (
                 <div key={l}>
                   <p className="display gold-text text-3xl italic md:text-5xl">{v}</p>

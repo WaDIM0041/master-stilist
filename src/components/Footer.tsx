@@ -100,7 +100,7 @@ export default function Footer() {
             © 2025 master stilist · стиль как система
           </p>
           <p className="label text-[9px] text-gold/50">
-            экспресс-анализ · колористика · STILIST PRO
+            разбор стиля · колористика · капсула
           </p>
           <button
             onClick={() => scrollToSection("#top")}
