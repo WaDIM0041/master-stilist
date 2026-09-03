@@ -18,6 +18,7 @@ export interface Service {
   price: string;
   note?: string;
   desc: string;
+  img: string;
 }
 
 export const CATEGORY_LABELS: Record<ServiceCategory, string> = {
@@ -29,6 +30,7 @@ export const CATEGORY_LABELS: Record<ServiceCategory, string> = {
 export const SERVICES: Service[] = [
   {
     id: "personal",
+    img: "/static/site/img/svc-personal.jpg",
     num: "001",
     cat: "private",
     title: "Персональный разбор стиля",
@@ -38,6 +40,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "men",
+    img: "/static/site/img/svc-men.jpg",
     num: "002",
     cat: "private",
     title: "Мужской разбор",
@@ -47,6 +50,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "event",
+    img: "/static/site/img/svc-event.jpg",
     num: "003",
     cat: "private",
     title: "Разбор под особый случай",
@@ -56,6 +60,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "cert",
+    img: "/static/site/img/svc-cert.jpg",
     num: "004",
     cat: "private",
     title: "Подарочный сертификат",
@@ -65,6 +70,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "kids",
+    img: "/static/site/img/svc-kids.jpg",
     num: "005",
     cat: "family",
     title: "Детский разбор",
@@ -74,6 +80,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "family",
+    img: "/static/site/img/svc-family.jpg",
     num: "006",
     cat: "family",
     title: "Семейный разбор",
@@ -83,6 +90,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "pro",
+    img: "/static/site/img/svc-pro.jpg",
     num: "007",
     cat: "pro",
     title: "Гайд по колористике — мастерам",
@@ -92,6 +100,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "partner",
+    img: "/static/site/img/svc-partner.jpg",
     num: "008",
     cat: "pro",
     title: "Лён для дома в вашей палитре",

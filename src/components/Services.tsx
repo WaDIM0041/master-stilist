@@ -5,7 +5,6 @@ import {
   type ServiceCategory,
 } from "../data/content";
 import { useModal } from "./Modal";
-import { spotMove } from "../lib/spot";
 
 type Filter = "all" | ServiceCategory;
 
@@ -36,7 +35,7 @@ export default function Services() {
               className="display mt-5 text-4xl sm:text-5xl lg:text-6xl"
               data-reveal
             >
-              Единый <em className="italic text-gold-deep">каталог</em>
+              Форматы <em className="italic text-gold-deep">разбора</em>
             </h2>
           </div>
           <div className="lg:col-span-5 lg:col-start-7">
@@ -45,8 +44,8 @@ export default function Services() {
               data-reveal
             >
               Для частных клиентов, семей и профессионалов индустрии — в одном
-              окне. Выберите направление: стоимость и формат указаны честно,
-              без «звёздочек» и скрытых условий.
+              окне. Стоимость и формат указаны честно, без «звёздочек» и скрытых
+              условий.
             </p>
           </div>
         </div>
@@ -77,52 +76,52 @@ export default function Services() {
           })}
         </div>
 
-        {/* Карточки услуг */}
-        <div key={filter}>
+        {/* Фото-карточки форматов */}
+        <div key={filter} className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-2">
           {list.map((s, i) => (
             <article
               key={s.id}
               onClick={() => open(s.id)}
-              onMouseMove={spotMove}
-              className="spot sweep group relative grid cursor-pointer grid-cols-12 gap-x-6 gap-y-4 border-b border-lined py-8 transition-colors duration-300 hover:bg-paper2/70 md:py-10"
-              style={{ animation: `rise 0.7s cubic-bezier(0.22,0.61,0.36,1) ${i * 60}ms both` }}
+              className="group cursor-pointer"
+              data-reveal
+              style={{ animation: `rise 0.7s cubic-bezier(0.22,0.61,0.36,1) ${i * 70}ms both` }}
             >
-              <div className="col-span-3 md:col-span-1">
-                <span className="label text-ink/35 transition-colors duration-300 group-hover:text-gold-deep">
-                  {s.num}
+              <div className="relative overflow-hidden border border-lined">
+                <img
+                  src={s.img}
+                  alt={s.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                />
+                <span className="label absolute right-4 top-4 bg-paper/85 px-2.5 py-1.5 text-[9px] text-ink/75 backdrop-blur-sm">
+                  {s.price}
                 </span>
               </div>
-              <div className="col-span-9 md:col-span-4">
-                <h3 className="display text-2xl leading-tight transition-transform duration-300 group-hover:translate-x-1 md:text-[1.9rem]">
-                  {s.title}
-                </h3>
-                <p className="label mt-2.5 text-[9px] text-ink/40 transition-colors group-hover:text-gold-deep">
-                  {CATEGORY_LABELS[s.cat]}
-                </p>
-              </div>
-              <p className="col-span-12 text-sm leading-relaxed text-ink/60 md:col-span-4 md:pl-4">
+
+              <p className="label mt-5 text-[9px] text-gold-deep">
+                {s.num} · {CATEGORY_LABELS[s.cat]}
+              </p>
+              <h3 className="display mt-2 text-2xl leading-tight transition-colors duration-300 group-hover:text-gold-deep md:text-[2rem]">
+                {s.title}
+              </h3>
+              <p className="mt-3 max-w-lg text-sm leading-relaxed text-ink/60">
                 {s.desc}
               </p>
-              <div className="col-span-12 flex items-end justify-between gap-4 md:col-span-3 md:flex-col md:items-end md:justify-between">
-                <div className="md:text-right">
-                  <p className="display text-2xl italic transition-colors duration-300 group-hover:text-gold-deep md:text-3xl">
-                    {s.price}
-                  </p>
-                  {s.note && (
-                    <p className="label mt-1.5 text-[9px] text-ink/40">{s.note}</p>
-                  )}
-                </div>
-                <span className="label border border-ink/25 px-4 py-2.5 text-[9px] transition-colors duration-200 group-hover:border-gold-deep group-hover:bg-gold-deep group-hover:text-paper">
+              <div className="mt-5 flex items-center gap-4">
+                <span className="label border border-ink/25 px-5 py-3 text-[9px] transition-colors duration-200 group-hover:border-gold-deep group-hover:bg-gold-deep group-hover:text-paper">
                   Выбрать →
                 </span>
+                {s.note && (
+                  <span className="label text-[9px] text-ink/40">{s.note}</span>
+                )}
               </div>
             </article>
           ))}
         </div>
 
-        <p className="label mt-6 text-[9px] text-ink/40" data-reveal>
-          нажав на строку, вы перейдёте к заявке — тариф подставится
-          автоматически
+        <p className="label mt-10 text-[9px] text-ink/40" data-reveal>
+          нажми на карточку — откроется заявка, тариф подставится автоматически
         </p>
       </div>
     </section>
