@@ -3,11 +3,9 @@
    ───────────────────────────────────────────── */
 
 export const CONTACTS = {
-  telegram: "https://t.me/masterstilist",
-  whatsapp: "https://wa.me/79001234567",
-  vk: "https://vk.me/masterstilist",
-  email: "privet@master-stilist.ru",
-  phone: "+7 900 123-45-67",
+  telegram: "https://t.me/Tanyahoney",
+  vk: "https://vk.ru/molokomyod",
+  max: "https://max.ru/u/f9LHodD0cOLV1X5TekPA8-pMGhoFE84RmTxeP_3Tz9RiMUQRHnkBdeIsRMw",
 };
 
 export type ServiceCategory = "private" | "family" | "pro";

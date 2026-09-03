@@ -29,19 +29,23 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-fit text-sm text-paper/75 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-gold-soft hover:decoration-gold"
               >
-                Telegram — @masterstilist
+                Telegram — @Tanyahoney
               </a>
               <a
-                href={`mailto:${CONTACTS.email}`}
+                href={CONTACTS.vk}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-fit text-sm text-paper/75 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-gold-soft hover:decoration-gold"
               >
-                {CONTACTS.email}
+                ВКонтакте — Молоко и мёд
               </a>
               <a
-                href={`tel:${CONTACTS.phone.replace(/[^+\d]/g, "")}`}
+                href={CONTACTS.max}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-fit text-sm text-paper/75 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-gold-soft hover:decoration-gold"
               >
-                {CONTACTS.phone}
+                MAX
               </a>
             </div>
             <button

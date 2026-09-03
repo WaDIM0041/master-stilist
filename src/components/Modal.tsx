@@ -83,8 +83,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
 
   const channels = [
     { label: "Telegram", href: `${CONTACTS.telegram}?text=${enc}` },
-    { label: "WhatsApp", href: `${CONTACTS.whatsapp}?text=${enc}` },
     { label: "ВКонтакте", href: CONTACTS.vk },
+    { label: "MAX", href: CONTACTS.max },
   ];
 
   return (
