@@ -100,7 +100,7 @@ export default function Nav() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => open()}
-              className="label hidden border border-gold/60 px-5 py-2.5 text-[10px] text-gold-soft transition-all duration-300 hover:border-gold hover:bg-gold hover:text-ink sm:block"
+              className="btn-gold label hidden px-5 py-2.5 text-[10px] sm:block"
             >
               Оставить заявку
             </button>

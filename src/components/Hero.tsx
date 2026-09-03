@@ -93,7 +93,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <h1 className="display text-[13.5vw] leading-[0.93] sm:text-[11vw] lg:text-[8.6vw]">
+        <h1 className="display text-[10.5vw] leading-[0.98] sm:text-[9.5vw] lg:text-[8.6vw]">
           <span data-hero-line className="mask-line">
             <span>Стиль — это</span>
           </span>
@@ -120,7 +120,7 @@ export default function Hero() {
           <div data-hero-fade className="flex flex-wrap items-center gap-3">
             <button
               onClick={() => scrollToSection("#express")}
-              className="label border border-gold/70 px-7 py-4 text-[10px] text-gold-bright transition-all duration-300 hover:border-gold hover:bg-gold hover:text-ink"
+              className="btn-gold label px-7 py-4 text-[10px]"
             >
               Записаться на разбор
             </button>

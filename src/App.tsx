@@ -18,6 +18,7 @@ import Pricing from "./components/Pricing";
 import Blog from "./components/Blog";
 import Partnership from "./components/Partnership";
 import Footer from "./components/Footer";
+import FloatingCTA from "./components/FloatingCTA";
 
 const MARQUEE_ITEMS = [
   "Персональный разбор",
@@ -61,6 +62,9 @@ export default function App() {
         </main>
         <Footer />
       </div>
+
+      {/* Плавающая кнопка заявки */}
+      <FloatingCTA />
 
       {/* Плёночное зерно поверх всего */}
       <div
