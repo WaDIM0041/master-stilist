@@ -33,7 +33,7 @@ export default function GoldDust() {
       ph: number;
       sp: number;
     }
-    const N = 40;
+    const N = window.innerWidth < 768 ? 0 : 16;
     const ps: P[] = Array.from({ length: N }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
@@ -70,7 +70,7 @@ export default function GoldDust() {
         const tw = 0.5 + 0.5 * Math.sin(t * p.sp * 2 + p.ph);
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(230, 207, 154, ${0.04 + 0.15 * tw})`;
+        ctx.fillStyle = `rgba(230, 207, 154, ${0.03 + 0.10 * tw})`;
         ctx.fill();
       }
     };

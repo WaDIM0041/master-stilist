@@ -205,8 +205,8 @@
   .aurora-a { animation: drift-a 40s ease-in-out infinite alternate; }
   .aurora-b { animation: drift-b 48s ease-in-out infinite alternate; }
   .aurora-c { animation: drift-c 56s ease-in-out infinite alternate; }
-  .silk { animation: spin-slower 90s linear infinite; }
-  .hero-glow { animation: hero-glow 10s ease-in-out infinite alternate; }
+  .silk { animation: spin-slower 140s linear infinite; }
+  .hero-glow { animation: hero-glow 18s ease-in-out infinite alternate; }
   /* Film grain */
   .grain-bg {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");

@@ -213,8 +213,8 @@ export interface ExpressSample {
   result: ExpressResult;
 }
 
-const px = (id: number, w: number, h: number) =>
-  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=${w}&h=${h}`;
+const px = (id: number, _w: number, _h: number) =>
+  `/static/site/img/${id}.jpg`;
 
 export const EXPRESS_SAMPLES: ExpressSample[] = [
   {
