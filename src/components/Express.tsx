@@ -75,8 +75,19 @@ export default function Express() {
   const rafRef = useRef(0);
   const fileRef = useRef<HTMLInputElement>(null);
   const uploadCount = useRef(0);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   const sample = EXPRESS_SAMPLES[sampleIdx];
+
+  // На мобильном портрет — над кнопками, поэтому при выборе образца
+  // «поднимаем» экран к картинке, чтобы было видно скан и результат.
+  const scrollToImage = () => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      requestAnimationFrame(() =>
+        imageRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+      );
+    }
+  };
 
   const start = (src: string, res: ExpressResult) => {
     cancelAnimationFrame(rafRef.current);
@@ -147,7 +158,13 @@ export default function Express() {
       <div className="mx-auto max-w-[1600px] px-5 py-24 md:px-10 md:py-36">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
           {/* Портрет со сканированием */}
-          <div className="lg:col-span-7" data-reveal>
+          <div
+            ref={imageRef}
+            id="express-img"
+            style={{ scrollMarginTop: "76px" }}
+            className="lg:col-span-7"
+            data-reveal
+          >
             <div className="relative aspect-[4/5] w-full overflow-hidden border border-gold/20 sm:aspect-[5/5]">
               <LiquidImage
                 key={imgSrc}
@@ -224,6 +241,7 @@ export default function Express() {
                   onClick={() => {
                     setSampleIdx(i);
                     start(s.img, s.result);
+                    scrollToImage();
                   }}
                   className={`group relative h-16 w-14 overflow-hidden border transition-colors ${
                     sampleIdx === i && phase === "idle"
@@ -358,7 +376,10 @@ export default function Express() {
 
             {phase === "idle" && (
               <button
-                onClick={() => start(sample.img, sample.result)}
+                onClick={() => {
+                  start(sample.img, sample.result);
+                  scrollToImage();
+                }}
                 className="label mt-9 w-full border border-gold/70 py-5 text-[10px] text-gold-bright transition-all duration-300 hover:bg-gold hover:text-ink"
                 data-reveal
               >
