@@ -92,7 +92,7 @@ export default function Services() {
                   alt={s.title}
                   loading="lazy"
                   decoding="async"
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  className="aspect-[4/3] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
                 <span className="label absolute right-4 top-4 bg-paper/85 px-2.5 py-1.5 text-[9px] text-ink/75 backdrop-blur-sm">
                   {s.price}
