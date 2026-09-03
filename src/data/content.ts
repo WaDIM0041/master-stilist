@@ -377,3 +377,63 @@ export const POSTS = [
       "Индивидуальная палитра первична, сезонная витрина — вторична. Как фильтровать тренды через свою карту стиля и не тратить деньги зря.",
   },
 ];
+
+
+/* ── 12 подтипов (сезон × 3) ── */
+export interface SeasonSubtype extends SeasonPalette {
+  season: string;
+}
+
+export const SEASON_SUBTYPES: SeasonSubtype[] = [
+  { id: "spring-light", season: "Весна", name: "Светлая весна", code: "Spring · Light",
+    desc: "Самый светлый и нежный из тёплых. База — крем и песок, акценты будто разбавлены молоком.",
+    colors: [ {hex:"#EFE3C8",name:"Крем-брюле"},{hex:"#FAD0AE",name:"Персик"},{hex:"#C4E3C7",name:"Мятная зелень"},{hex:"#F3E08A",name:"Нежно-жёлтый"},{hex:"#FBA98C",name:"Светлый коралл"},{hex:"#9AD8D0",name:"Аквамарин"} ],
+    contrast: "Мягкий", metal: "Светлое золото", avoid: "Чёрный, тёмные холодные" },
+  { id: "spring-warm", season: "Весна", name: "Тёплая весна", code: "Spring · Warm",
+    desc: "Чистое тёплое золото. Цвета спелые и солнечные, но не тёмные.",
+    colors: [ {hex:"#E7C596",name:"Тёплый беж"},{hex:"#DFA23E",name:"Золото"},{hex:"#82B053",name:"Травяной"},{hex:"#FF7F50",name:"Коралл"},{hex:"#2FB6A8",name:"Тёплая бирюза"},{hex:"#A9713B",name:"Карамель"} ],
+    contrast: "Средний", metal: "Жёлтое золото", avoid: "Пыльные, серые" },
+  { id: "spring-bright", season: "Весна", name: "Яркая весна", code: "Spring · Bright",
+    desc: "Тёплый, но контрастный и звонкий. Цвета чистые и сочные.",
+    colors: [ {hex:"#12B3BF",name:"Бирюза"},{hex:"#F0453A",name:"Тёплый красный"},{hex:"#A6CE39",name:"Лайм"},{hex:"#FFC21A",name:"Солнечный жёлтый"},{hex:"#EF5DA8",name:"Тёплая фуксия"},{hex:"#2E6FE0",name:"Ярко-синий"} ],
+    contrast: "Высокий", metal: "Яркое золото", avoid: "Приглушённые, дымчатые" },
+
+  { id: "summer-light", season: "Лето", name: "Светлое лето", code: "Summer · Light",
+    desc: "Прохладный и светлый. Пудра, дымка, холодные пастели.",
+    colors: [ {hex:"#EAD7DE",name:"Пудра"},{hex:"#BCD4E6",name:"Голубой"},{hex:"#C9C3E0",name:"Лаванда"},{hex:"#BFE0D6",name:"Холодная мята"},{hex:"#D9B9C0",name:"Серо-розовый"},{hex:"#D6D8DC",name:"Светло-серый"} ],
+    contrast: "Мягкий", metal: "Серебро", avoid: "Чёрный, оранжевый" },
+  { id: "summer-cool", season: "Лето", name: "Холодное лето", code: "Summer · Cool",
+    desc: "Прохладный со средним контрастом. Синева и фиолет в основе.",
+    colors: [ {hex:"#7FA1C0",name:"Серо-голубой"},{hex:"#9A8FBF",name:"Лаванда"},{hex:"#B04A6E",name:"Холодный малиновый"},{hex:"#4E9E86",name:"Мягкий изумруд"},{hex:"#4C6B8A",name:"Серо-синий"},{hex:"#C48CA0",name:"Дымчатая роза"} ],
+    contrast: "Средний", metal: "Серебро", avoid: "Тёплые, золотистые" },
+  { id: "summer-soft", season: "Лето", name: "Мягкое лето", code: "Summer · Soft",
+    desc: "Прохладный и приглушённый. Всё будто в лёгком тумане.",
+    colors: [ {hex:"#A7A9AD",name:"Дымчатый серый"},{hex:"#C9A6AD",name:"Пыльная роза"},{hex:"#9FB0A0",name:"Шалфей"},{hex:"#8E7C8C",name:"Серо-сливовый"},{hex:"#7FA6A0",name:"Приглушённый бирюзовый"},{hex:"#C0C4C8",name:"Туман"} ],
+    contrast: "Мягкий", metal: "Матовое серебро", avoid: "Яркие чистые цвета" },
+
+  { id: "autumn-soft", season: "Осень", name: "Мягкая осень", code: "Autumn · Soft",
+    desc: "Тёплый и приглушённый. Земля, шалфей, пыльная терракота.",
+    colors: [ {hex:"#C7B299",name:"Тёплый беж"},{hex:"#8B9A6B",name:"Шалфей"},{hex:"#B0745B",name:"Пыльная терракота"},{hex:"#C7A24A",name:"Мягкая горчица"},{hex:"#6F9A94",name:"Пыльный бирюзовый"},{hex:"#7A5B45",name:"Какао"} ],
+    contrast: "Мягкий — средний", metal: "Матовое золото", avoid: "Холодные яркие" },
+  { id: "autumn-warm", season: "Осень", name: "Тёплая осень", code: "Autumn · Warm",
+    desc: "Насыщенное тёплое золото. Горчица, ржавчина, мох, тыква.",
+    colors: [ {hex:"#C8931F",name:"Горчица"},{hex:"#B5502A",name:"Ржавый"},{hex:"#6E7B33",name:"Олива"},{hex:"#D77A2B",name:"Тыква"},{hex:"#2E8B77",name:"Тёплый тил"},{hex:"#5C3A21",name:"Шоколад"} ],
+    contrast: "Средний", metal: "Медь, бронза", avoid: "Серо-холодные пастели" },
+  { id: "autumn-deep", season: "Осень", name: "Тёмная осень", code: "Autumn · Deep",
+    desc: "Тёплый и глубокий, высокий контраст. Пряности и тёмное дерево.",
+    colors: [ {hex:"#3E2A1E",name:"Тёмный шоколад"},{hex:"#6E2A2A",name:"Тёплый бордо"},{hex:"#4A5327",name:"Тёмная олива"},{hex:"#B85C1E",name:"Тёмная тыква"},{hex:"#1F5E52",name:"Тёмный тил"},{hex:"#9A6B1E",name:"Глубокое золото"} ],
+    contrast: "Высокий", metal: "Тёмное золото, бронза", avoid: "Пыльные светлые пастели" },
+
+  { id: "winter-bright", season: "Зима", name: "Яркая зима", code: "Winter · Bright",
+    desc: "Холодный и максимально звонкий. Чистые электрик и фуксия.",
+    colors: [ {hex:"#14161F",name:"Чёрно-синий"},{hex:"#FFFFFF",name:"Чистый белый"},{hex:"#0E63E8",name:"Электрик"},{hex:"#E01E7B",name:"Фуксия"},{hex:"#04B5C4",name:"Ярко-бирюзовый"},{hex:"#EDE84A",name:"Холодный лимон"} ],
+    contrast: "Очень высокий", metal: "Серебро, хром", avoid: "Приглушённые, землистые" },
+  { id: "winter-cool", season: "Зима", name: "Холодная зима", code: "Winter · Cool",
+    desc: "Холодный и чистый. Снег, уголь, малина, синий.",
+    colors: [ {hex:"#F5F7FA",name:"Снежно-белый"},{hex:"#2A2C31",name:"Угольный"},{hex:"#C61E5B",name:"Малиновый"},{hex:"#A9D2E6",name:"Ледяной голубой"},{hex:"#1E49C0",name:"Чистый синий"},{hex:"#0F7A5A",name:"Холодный изумруд"} ],
+    contrast: "Высокий", metal: "Серебро", avoid: "Золотистые, тёплые" },
+  { id: "winter-deep", season: "Зима", name: "Тёмная зима", code: "Winter · Deep",
+    desc: "Холодный и глубокий. Чёрный, вино, изумруд, сапфир.",
+    colors: [ {hex:"#111114",name:"Чёрный"},{hex:"#F2F4F7",name:"Ледяной белый"},{hex:"#6A1E3A",name:"Холодное вино"},{hex:"#0E6B4E",name:"Изумруд"},{hex:"#143A7A",name:"Сапфир"},{hex:"#C01E6B",name:"Холодная фуксия"} ],
+    contrast: "Высокий", metal: "Серебро, платина", avoid: "Тёплые пыльные" },
+];
