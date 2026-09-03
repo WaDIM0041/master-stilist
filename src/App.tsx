@@ -19,6 +19,7 @@ import Blog from "./components/Blog";
 import Partnership from "./components/Partnership";
 import Footer from "./components/Footer";
 import FloatingCTA from "./components/FloatingCTA";
+import ScrollProgress from "./components/ScrollProgress";
 
 const MARQUEE_ITEMS = [
   "Персональный разбор",
@@ -63,7 +64,8 @@ export default function App() {
         <Footer />
       </div>
 
-      {/* Плавающая кнопка заявки */}
+      {/* Сквозной шлейф прогресса + плавающая кнопка заявки */}
+      <ScrollProgress />
       <FloatingCTA />
 
       {/* Плёночное зерно поверх всего */}
