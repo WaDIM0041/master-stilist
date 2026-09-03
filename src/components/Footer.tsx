@@ -3,7 +3,7 @@ import { scrollToSection } from "../lib/scroll";
 import { useModal } from "./Modal";
 
 const NAV = [
-  { label: "Технология", href: "#express" },
+  { label: "Цветотипы", href: "#express" },
   { label: "Услуги", href: "#services" },
   { label: "Метод", href: "#process" },
   { label: "Обо мне", href: "#about" },

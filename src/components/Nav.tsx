@@ -4,12 +4,12 @@ import { scrollToSection } from "../lib/scroll";
 import { useModal } from "./Modal";
 
 const LINKS = [
-  { label: "Технология", href: "#express" },
+  { label: "Цветотипы", href: "#express" },
   { label: "Услуги", href: "#services" },
   { label: "Метод", href: "#process" },
   { label: "Обо мне", href: "#about" },
   { label: "Тарифы", href: "#pricing" },
-  { label: "Журнал", href: "#journal" },
+  { label: "Журнал", href: "/blog/" },
 ];
 
 export default function Nav() {
@@ -20,6 +20,10 @@ export default function Nav() {
 
   const go = (href: string) => {
     setMenuOpen(false);
+    if (href.startsWith("/") || href.startsWith("http")) {
+      window.location.href = href;
+      return;
+    }
     scrollToSection(href);
   };
 
