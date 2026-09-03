@@ -103,9 +103,12 @@ export default function Footer() {
           <p className="label text-[9px] text-gold/50">
             © 2025 master stilist · стиль как система
           </p>
-          <p className="label text-[9px] text-gold/50">
-            разбор стиля · колористика · капсула
-          </p>
+          <a
+            href="/politika"
+            className="label text-[9px] text-gold/50 transition-colors hover:text-gold-soft"
+          >
+            Политика конфиденциальности
+          </a>
           <button
             onClick={() => scrollToSection("#top")}
             className="label w-fit text-[9px] text-gold/60 transition-colors hover:text-gold-bright"

@@ -193,7 +193,15 @@ export function ModalProvider({ children }: { children: ReactNode }) {
               <p className="mt-5 text-xs leading-relaxed text-ink/45">
                 Выбранный тариф и параметры подставятся в сообщение автоматически.
                 Работаем ежедневно, 10:00–20:00 МСК. Нажимая кнопку, вы
-                соглашаетесь с обработкой персональных данных.
+                соглашаетесь с обработкой персональных данных и{" "}
+                <a
+                  href="/politika"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-ink/30 underline-offset-2 transition-colors hover:text-gold-deep"
+                >
+                  политикой конфиденциальности
+                </a>.
               </p>
             </div>
           </div>
