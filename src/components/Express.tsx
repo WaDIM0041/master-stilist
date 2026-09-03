@@ -76,6 +76,7 @@ export default function Express() {
   const fileRef = useRef<HTMLInputElement>(null);
   const uploadCount = useRef(0);
   const imageRef = useRef<HTMLDivElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const sample = EXPRESS_SAMPLES[sampleIdx];
 
@@ -140,6 +141,17 @@ export default function Express() {
       sampleColors(imgSrc).then((hexes) => setReadout(hexes));
     }
   }, [phase, result, imgSrc]);
+
+  // На мобильном после сканирования опускаем экран к готовому результату,
+  // чтобы «пример — Мягкая осень» и палитра сразу были в поле зрения.
+  useEffect(() => {
+    if (phase !== "done") return;
+    if (typeof window === "undefined" || window.innerWidth >= 1024) return;
+    const t = setTimeout(() => {
+      resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+    return () => clearTimeout(t);
+  }, [phase]);
 
   const onUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -312,7 +324,12 @@ export default function Express() {
 
             {/* Результат */}
             {phase === "done" && result && (
-              <div className="sweep animate-rise mt-8 border border-gold/30 bg-smoke/70 p-6">
+              <div
+                ref={resultRef}
+                id="express-result"
+                style={{ scrollMarginTop: "76px" }}
+                className="sweep animate-rise mt-8 border border-gold/30 bg-smoke/70 p-6"
+              >
                 <div className="flex items-baseline justify-between">
                   <p className="label text-gold">Карта стиля · готово</p>
                   <p className="label text-[9px] text-paper/40">{result.code}</p>
