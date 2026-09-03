@@ -28,10 +28,10 @@ export default function About() {
                 </div>
 
                 {/* Переключатель тона: Ч/Б ⇄ Цвет */}
-                <div className="mt-3 flex items-center gap-3 border-t border-line pt-3">
-                  <span className="label text-[9px] text-paper/35">тон</span>
+                <div className="mt-4 flex items-center gap-3 border-t border-line pt-4">
+                  <span className="label text-[10px] text-paper/45">тон</span>
                   <div
-                    className="flex items-center gap-3"
+                    className="flex items-center gap-2"
                     role="group"
                     aria-label="Тон фотографии"
                   >
@@ -39,19 +39,22 @@ export default function About() {
                       type="button"
                       onClick={() => setMono(true)}
                       aria-pressed={mono}
-                      className={`label text-[9px] transition-colors ${
-                        mono ? "text-gold" : "text-paper/40 hover:text-paper/70"
+                      className={`label rounded-full border px-4 py-2 text-[11px] transition-all duration-200 ${
+                        mono
+                          ? "border-gold bg-gold text-ink"
+                          : "border-paper/30 text-paper/60 hover:border-gold/60 hover:text-paper"
                       }`}
                     >
                       Ч/Б
                     </button>
-                    <span className="h-3 w-px bg-line" />
                     <button
                       type="button"
                       onClick={() => setMono(false)}
                       aria-pressed={!mono}
-                      className={`label text-[9px] transition-colors ${
-                        !mono ? "text-gold" : "text-paper/40 hover:text-paper/70"
+                      className={`label rounded-full border px-4 py-2 text-[11px] transition-all duration-200 ${
+                        !mono
+                          ? "border-gold bg-gold text-ink"
+                          : "border-paper/30 text-paper/60 hover:border-gold/60 hover:text-paper"
                       }`}
                     >
                       Цвет

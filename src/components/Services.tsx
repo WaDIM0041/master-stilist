@@ -86,13 +86,17 @@ export default function Services() {
               data-reveal
               style={{ animation: `rise 0.7s cubic-bezier(0.22,0.61,0.36,1) ${i * 70}ms both` }}
             >
-              <div className="relative overflow-hidden border border-lined">
+              <div className="relative overflow-hidden border border-lined transition-colors duration-500 group-hover:border-gold-deep/40">
                 <img
                   src={s.img}
                   alt={s.title}
                   loading="lazy"
                   decoding="async"
-                  className="aspect-[4/3] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  className="aspect-[4/3] w-full object-cover object-top"
+                  style={{
+                    transformOrigin: "50% 18%",
+                    animation: `kenburns ${15 + (i % 3) * 3}s ease-in-out ${(i % 4) * 0.7}s infinite alternate`,
+                  }}
                 />
                 <span className="label absolute right-4 top-4 bg-paper/85 px-2.5 py-1.5 text-[9px] text-ink/75 backdrop-blur-sm">
                   {s.price}
