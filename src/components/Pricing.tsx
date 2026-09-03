@@ -94,7 +94,7 @@ export default function Pricing() {
               на каждого следующего участника.
             </p>
             <p className="label text-[9px] text-gold/50">
-              NDA по запросу для мастеров
+              Гайд по колористике для мастеров — бесплатно
             </p>
           </div>
         </div>

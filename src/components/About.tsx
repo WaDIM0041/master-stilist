@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { MEDIA } from "../data/content";
 import LiquidImage from "./LiquidImage";
 
 export default function About() {
+  const [mono, setMono] = useState(true);
+
   return (
     <section id="about" className="bg-graphite text-paper">
       <div className="mx-auto max-w-[1600px] px-5 py-24 md:px-10 md:py-36">
@@ -12,31 +15,62 @@ export default function About() {
               <div data-reveal>
                 <LiquidImage
                   src={MEDIA.aboutPortrait}
-                  alt="Татьяна — стилист-колорист, основатель метода"
+                  alt="Татьяна — автор проекта «Мастер-стилист»"
                   className="aspect-[4/5] w-full border border-line"
-                  imgClassName="mono-media"
+                  imgClassName={mono ? "mono-media" : ""}
                   strength={1}
                 />
                 <div className="mt-3 flex items-baseline justify-between">
                   <p className="label text-[9px] text-paper/45">
-                    Татьяна · стилист-колорист
+                    Татьяна · автор проекта
                   </p>
-                  <p className="label text-[9px] text-paper/45">осн. 2021</p>
+                  <p className="label text-[9px] text-paper/45">по фото · онлайн</p>
+                </div>
+
+                {/* Переключатель тона: Ч/Б ⇄ Цвет */}
+                <div className="mt-3 flex items-center gap-3 border-t border-line pt-3">
+                  <span className="label text-[9px] text-paper/35">тон</span>
+                  <div
+                    className="flex items-center gap-3"
+                    role="group"
+                    aria-label="Тон фотографии"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setMono(true)}
+                      aria-pressed={mono}
+                      className={`label text-[9px] transition-colors ${
+                        mono ? "text-gold" : "text-paper/40 hover:text-paper/70"
+                      }`}
+                    >
+                      Ч/Б
+                    </button>
+                    <span className="h-3 w-px bg-line" />
+                    <button
+                      type="button"
+                      onClick={() => setMono(false)}
+                      aria-pressed={!mono}
+                      className={`label text-[9px] transition-colors ${
+                        !mono ? "text-gold" : "text-paper/40 hover:text-paper/70"
+                      }`}
+                    >
+                      Цвет
+                    </button>
+                  </div>
                 </div>
               </div>
               <p
                 className="display mt-10 hidden max-w-xs text-2xl italic leading-snug text-gold-soft/90 lg:block"
                 data-reveal
               >
-                «Стиль — это грамматика. Я учу вас говорить на нём без
-                ошибок.»
+                «Не волшебство. Метод, вкус и любовь к прекрасному.»
               </p>
             </div>
           </div>
 
           {/* История бренда */}
           <div className="lg:col-span-6 lg:col-start-7">
-            <p className="label text-gold/80" data-reveal>05 / Бренд</p>
+            <p className="label text-gold/80" data-reveal>05 / Обо мне</p>
             <h2
               className="display mt-5 text-4xl sm:text-5xl lg:text-[3.6rem]"
               data-reveal
@@ -46,23 +80,21 @@ export default function About() {
 
             <div className="mt-8 space-y-6 text-sm leading-relaxed text-paper/65 md:text-base" data-reveal>
               <p>
-                Меня зовут Татьяна. Восемь лет я работаю стилистом-колористом:
-                сначала — с моделями и съёмочными гардеробами, затем — с
-                частными клиентами, которые приходили с одной и той же
-                жалобой: «всё покупаю — и ничего не ношу».
+                Скажу честно — это не волшебство. Я администрирую сайты и просто
+                очень люблю всё красивое, всё, что касается образа и тела. И когда
+                новый мир технологий открыл эту возможность, я не смогла пройти
+                мимо.
               </p>
               <p>
-                За это время я собрала собственную шкалу контраста и систему
-                из двенадцати подтипов вместо привычных четырёх сезонов.
-                Сегодня эту шкалу считает алгоритм платформы, но каждый вывод
-                по-прежнему проходит мою проверку. Машина умеет считать
-                пигмент кожи — чувство меры пока только у человека.
+                Имея вкус и любовь к прекрасному, я воплотила свою мечту —
+                приручила инструмент, который показывает, каким может быть твой
+                образ. Это не гадание, а спокойная, внимательная работа с цветом
+                и линиями.
               </p>
               <p>
-                Master Stilist вырос из частной практики в цифровую платформу:
-                теперь метод работает для клиентов онлайн — и для мастеров
-                индустрии красоты, которые запускают разборы под собственной
-                маркой.
+                И я хочу, чтобы каждый, кто мечтает увидеть себя новым — в образе
+                или луке, о котором давно думал, — был чуть смелее. Закажи разбор
+                и увидь себя таким, каким вижу тебя я.
               </p>
             </div>
 
@@ -87,7 +119,7 @@ export default function About() {
               className="display mt-12 max-w-md text-2xl italic leading-snug text-gold-soft/90 lg:hidden"
               data-reveal
             >
-              «Стиль — это грамматика. Я учу вас говорить на нём без ошибок.»
+              «Не волшебство. Метод, вкус и любовь к прекрасному.»
             </blockquote>
           </div>
         </div>

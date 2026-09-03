@@ -10,7 +10,7 @@ export default function Partnership() {
       <div className="mx-auto max-w-[1600px] px-5 py-24 md:px-10 md:py-36">
         <div className="grid items-center gap-14 lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <p className="label text-gold/80" data-reveal>10 / Партнёрство</p>
+            <p className="label text-gold/80" data-reveal>10 / Лён для дома</p>
             <h2
               className="display mt-5 text-4xl sm:text-5xl lg:text-[3.8rem]"
               data-reveal
@@ -19,16 +19,13 @@ export default function Partnership() {
             </h2>
             <div className="mt-8 max-w-lg space-y-5 text-sm leading-relaxed text-paper/65 md:text-base" data-reveal>
               <p>
-                Совместная программа с брендами одежды из натуральных тканей.
-                Каждая капсула коллекции проходит проверку палитрами наших
-                клиентов: мы знаем, кому пойдёт terracotta, а кому — только
-                мох.
+                Вместе с мастерской натурального льна «Льняной путь» из
+                Санкт-Петербурга подбираю домашний текстиль — для ванной,
+                спальни и кухни — в оттенках, которые работают на тебя.
               </p>
               <p>
-                Бренды получают витрину внутри персональных разборов и
-                аналитику спроса по оттенкам. Мастера — готовые материалы для
-                клиентов. Клиенты — гардероб, который наконец выглядит
-                как единое высказывание.
+                Тот же спокойный цвет, что у лица, — теперь и дома. Никаких
+                «программ» и процентов: просто подбор льна под твою палитру.
               </p>
             </div>
             <div className="mt-10 flex flex-wrap gap-3" data-reveal>
@@ -36,13 +33,13 @@ export default function Partnership() {
                 onClick={() => open("partner")}
                 className="label border border-gold/70 px-7 py-4 text-[10px] text-gold-bright transition-all duration-300 hover:border-gold hover:bg-gold hover:text-ink"
               >
-                Стать партнёром
+                Узнать свой оттенок льна
               </button>
               <button
                 onClick={() => open("pro")}
                 className="label px-2 py-4 text-[10px] text-paper/60 underline decoration-paper/30 underline-offset-8 transition-colors hover:text-gold-soft hover:decoration-gold"
               >
-                Для мастеров: STILIST PRO
+                Мастерам: бесплатный гайд
               </button>
             </div>
           </div>

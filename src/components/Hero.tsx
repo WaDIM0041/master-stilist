@@ -86,7 +86,7 @@ export default function Hero() {
         <div data-hero-fade className="mb-6 flex items-center justify-between md:mb-10">
           <p className="label flex items-center gap-3 text-paper/75">
             <span className="inline-block h-1.5 w-1.5 rotate-45 bg-gold" />
-            Digital-платформа стиля
+            Стилист-колорист
           </p>
           <p className="label hidden text-paper/50 sm:block">
             Онлайн · по всей России

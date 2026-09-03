@@ -140,7 +140,7 @@ export default function Express() {
     e.target.value = "";
   };
 
-  const seconds = Math.min(10, Math.floor((progress * DURATION) / 1000));
+  void progress;
 
   return (
     <section id="express" className="relative bg-graphite/85 text-paper">
@@ -175,7 +175,7 @@ export default function Express() {
                     )
                   )}
                   <span className="label absolute left-4 top-4 animate-blink text-[9px] text-gold-bright">
-                    analysis · {Math.round(progress * 100)}%
+                    подбор · {Math.round(progress * 100)}%
                   </span>
                 </div>
               )}
@@ -205,15 +205,15 @@ export default function Express() {
 
           {/* Панель управления */}
           <div className="lg:col-span-5">
-            <p className="label text-gold/80" data-reveal>01 / Технология</p>
+            <p className="label text-gold/80" data-reveal>01 / Цветотипы</p>
             <h2 className="display mt-5 text-4xl sm:text-5xl lg:text-6xl" data-reveal>
-              Экспресс-анализ <em className="gold-text italic">за 10 секунд</em>
+              Четыре цветотипа <em className="gold-text italic">на примере</em>
             </h2>
             <div className="gold-fade-h mt-6 w-28" data-reveal />
             <p className="mt-6 max-w-md text-sm leading-relaxed text-paper/65" data-reveal>
-              Выберите образец или загрузите свой портрет: алгоритм считает
-              оттенок кожи, волос и глаз, определит цветотип и соберёт
-              персональную палитру. Без регистрации и отправки данных.
+              Выбери образец — весну, лето, осень или зиму — и посмотри,
+              как для этого колорита собирается палитра, контраст и
+              металл. Видно, что даёт разбор и чем весна не зима.
             </p>
 
             {/* Образцы + загрузка */}
@@ -243,29 +243,15 @@ export default function Express() {
                   </span>
                 </button>
               ))}
-              <button
-                onClick={() => fileRef.current?.click()}
-                className="label h-16 border border-dashed border-gold/35 px-4 text-[9px] text-gold-soft/80 transition-colors hover:border-gold hover:text-gold-bright"
-              >
-                Загрузить
-                <br />
-                своё фото
-              </button>
-              <input
-                ref={fileRef}
-                type="file"
-                accept="image/*"
-                className="hidden"
-                onChange={onUpload}
-              />
+              
             </div>
 
             {/* Таймер + шаги */}
             <div className="mt-9 border-t border-gold/15 pt-6" data-reveal>
               <div className="flex items-baseline justify-between">
                 <span className="display gold-text text-3xl italic">
-                  0:{String(seconds).padStart(2, "0")}
-                  <span className="text-lg text-paper/40"> / 10 сек</span>
+                  {Math.round(progress * 100)}%
+                  <span className="text-lg text-paper/40"> палитра</span>
                 </span>
                 <span className="label text-gold/60">
                   {phase === "idle" ? "ожидание" : phase === "run" ? "анализ" : "готово"}
@@ -376,7 +362,7 @@ export default function Express() {
                 className="label mt-9 w-full border border-gold/70 py-5 text-[10px] text-gold-bright transition-all duration-300 hover:bg-gold hover:text-ink"
                 data-reveal
               >
-                Запустить демо-анализ — {sample.name}
+                Посмотреть пример — {sample.name}
               </button>
             )}
           </div>

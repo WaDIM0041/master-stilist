@@ -12,7 +12,7 @@ type Filter = "all" | ServiceCategory;
 const FILTERS: { id: Filter; label: string }[] = [
   { id: "all", label: "Все услуги" },
   { id: "private", label: "Частный разбор" },
-  { id: "pro", label: "Для мастеров" },
+  { id: "pro", label: "Мастерам" },
   { id: "family", label: "Семейный формат" },
 ];
 
