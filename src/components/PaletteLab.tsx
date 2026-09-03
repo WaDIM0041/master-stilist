@@ -17,11 +17,17 @@ export default function PaletteLab() {
 
   const select = (id: string) => {
     setActiveId(id);
-    if (typeof window !== "undefined" && window.innerWidth < 1024) {
-      requestAnimationFrame(() =>
-        paletteRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
-      );
-    }
+    if (typeof window === "undefined") return;
+    // И на мобильном, и на десктопе взгляд «проваливается» в раскладку цвета:
+    // на узком экране — к началу палитры, на широком — по центру, чтобы клик
+    // по подтипу ощущался как переход внутрь палитры, а не тихая смена справа.
+    const mobile = window.innerWidth < 1024;
+    requestAnimationFrame(() =>
+      paletteRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: mobile ? "start" : "center",
+      })
+    );
   };
 
   return (
@@ -79,8 +85,8 @@ export default function PaletteLab() {
             ))}
 
             {/* Подсказка на мобильном */}
-            <p className="label mt-1 text-[9px] text-ink/35 lg:hidden">
-              нажми подтип — палитра появится ниже ↓
+            <p className="label mt-1 text-[9px] text-ink/35">
+              нажми подтип — палитра раскроется рядом
             </p>
 
             <button
