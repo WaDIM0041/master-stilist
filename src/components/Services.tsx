@@ -9,7 +9,7 @@ import { useModal } from "./Modal";
 type Filter = "all" | ServiceCategory;
 
 const FILTERS: { id: Filter; label: string }[] = [
-  { id: "all", label: "Все услуги" },
+  { id: "all", label: "Всё предложение" },
   { id: "private", label: "Частный разбор" },
   { id: "pro", label: "Мастерам" },
   { id: "family", label: "Семейный формат" },
@@ -30,7 +30,7 @@ export default function Services() {
         {/* Заголовок секции */}
         <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <p className="label text-gold-deep" data-reveal>02 / Услуги</p>
+            <p className="label text-gold-deep" data-reveal>02 / Предложение</p>
             <h2
               className="display mt-5 text-4xl sm:text-5xl lg:text-6xl"
               data-reveal

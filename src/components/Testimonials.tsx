@@ -17,7 +17,7 @@ export default function Testimonials() {
             </h2>
           </div>
           <p className="label text-[9px] text-gold/70" data-reveal>
-            4.9 / 5 · по 214 оценкам
+            честно · без накруток
           </p>
         </div>
 

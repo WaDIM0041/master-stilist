@@ -74,7 +74,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
 
   const message =
     `Заявка с сайта master-stilist\n` +
-    `Услуга: ${service.title} — ${service.price}\n` +
+    `Предложение: ${service.title} — ${service.price}\n` +
     `Имя: ${name.trim() || "—"}\n` +
     `Контакт: ${contact.trim() || "—"}\n` +
     (comment.trim() ? `Комментарий: ${comment.trim()}\n` : "") +
@@ -123,7 +123,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
             </div>
 
             <div className="px-6 py-6 md:px-8">
-              <p className="label mb-3 text-ink/45">Услуга</p>
+              <p className="label mb-3 text-ink/45">Предложение</p>
               <div className="flex flex-wrap gap-2">
                 {SERVICES.map((s) => (
                   <button

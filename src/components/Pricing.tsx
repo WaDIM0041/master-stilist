@@ -39,7 +39,7 @@ export default function Pricing() {
             <p className="max-w-md text-sm leading-relaxed text-paper/60 lg:mt-12" data-reveal>
               Цена фиксируется после брифа и не меняется в процессе работы.
               Без таймеров, «горящих» скидок и других лишних эмоций — только
-              список услуг и цифры рядом с ними.
+              предложение и цифры рядом с ними.
             </p>
           </div>
         </div>

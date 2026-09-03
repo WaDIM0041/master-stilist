@@ -5,7 +5,7 @@ import { useModal } from "./Modal";
 
 const LINKS = [
   { label: "Цветотипы", href: "#express" },
-  { label: "Услуги", href: "#services" },
+  { label: "Предложение", href: "#services" },
   { label: "Метод", href: "#process" },
   { label: "Обо мне", href: "#about" },
   { label: "Тарифы", href: "#pricing" },

@@ -4,7 +4,7 @@ import { useModal } from "./Modal";
 
 const NAV = [
   { label: "Цветотипы", href: "#express" },
-  { label: "Услуги", href: "#services" },
+  { label: "Предложение", href: "#services" },
   { label: "Метод", href: "#process" },
   { label: "Обо мне", href: "#about" },
   { label: "Тарифы", href: "#pricing" },
@@ -73,7 +73,7 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-3 md:col-start-10">
-            <p className="label text-gold/70">Услуги</p>
+            <p className="label text-gold/70">Предложение</p>
             <ul className="mt-5 space-y-3">
               {SERVICES.slice(0, 6).map((s) => (
                 <li key={s.id}>
